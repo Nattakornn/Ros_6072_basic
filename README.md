@@ -1,2 +1,2 @@
-# Ros_6072_bacis
+# Ros_6072_basic
 Mini Project Fra502
