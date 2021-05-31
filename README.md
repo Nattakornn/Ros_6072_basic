@@ -9,7 +9,7 @@ Use gazebo and keyboard for simulation
 ```sh
 roslaunch robotblack_gazebo robotblack_gazebo.launch 
 ```
-Use the keyboard only
+Use the keyboard only and Close Terminal with b button
 ```sh
 roslaunch robotblack_gazebo teleop_Rb.launch 
 ```
