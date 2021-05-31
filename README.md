@@ -4,4 +4,8 @@ Mini Project for Fra502
 - Ubuntu 18.04
 - Ros Melodic 
 - Gazebo 9
+### Run gazebo for test
 
+```sh
+roslaunch robotblack_gazebo robotblack.launch 
+```
