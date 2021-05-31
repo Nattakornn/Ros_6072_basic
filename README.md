@@ -18,7 +18,7 @@ To create map by slam gmapping
 ```sh
 roslaunch robotblack_slam slam_gmapping.launch 
 ```
-Save map with map saving
+Save map with map saver
 ```sh
 rosrun map_server map_saver -f mymap
 ```
