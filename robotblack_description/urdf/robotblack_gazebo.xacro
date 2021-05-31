@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name="robotblack_gazebo" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!--plugin_control-->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/robotblack_drive</robotNamespace>
+        </plugin>
+    </gazebo>
+    
+    <!--plugin_differntial_drive-->
+    <!-- <gazebo>
+        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+            <leftJoint>left_joint_wheel</leftJoint>
+            <rightJoint>right_joint_wheel</rightJoint>
+            <updateRate>100</updateRate>
+            <wheelSeparation>0.322</wheelSeparation>
+            <wheelDiameter>0.02</wheelDiameter>
+            <wheelAcceleration>1.0</wheelAcceleration>
+            <wheelTorque>5</wheelTorque>
+            <odometryTopic>odom</odometryTopic>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+            <commandTopic>cmd_vel</commandTopic>
+        </plugin>
+    </gazebo> -->
+
+</robot>

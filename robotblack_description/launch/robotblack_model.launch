@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="gui" default="ture" />
+    <param name="robot_description" command="xacro --inorder '$(find robotblack_description)/urdf/robotblack_main.xacro'" />
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="$(arg gui)"/>
+    </node>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotblack_description)/rviz/rviz_debug.rviz"/>
+
+</launch>

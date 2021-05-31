@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robotblack_description)/urdf/robotblack_main.xacro"/>
+
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0.6"/>
+    <arg name="yaw" default="0"/>
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -model robotblack -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)" />
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find robotblack_gazebo)/worlds/Homewithtonya_1.world"/>
+    </include>
+    
+    <!--controller load -->
+    <!-- <rosparam file="$(find robotblack_description)/config/config_pid.yaml" command="load" />
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/robotblack_drive" args="joint_state_controller joint1_right_velocity_controller joint2_left_velocity_controller"/>  -->
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    </node>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+    <!--include teleop-->
+    <include file="$(find robotblack_gazebo)/launch/teleop_Rb.launch"/>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotblack_gazebo)/rviz/config_gazebo.rviz"/>
+
+</launch>

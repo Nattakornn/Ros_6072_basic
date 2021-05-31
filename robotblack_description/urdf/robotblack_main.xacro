@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot name="robotblack" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!-- Include -->
+    <xacro:include filename="$(find robotblack_description)/urdf/robotblack_chassis.xacro"/>
+    <xacro:include filename="$(find robotblack_description)/urdf/robotblack_wheel.xacro"/>
+    <xacro:include filename="$(find robotblack_description)/urdf/robotblack_property.xacro"/>
+
+
+    <xacro:base_link/>
+
+    <xacro:wheel name="left"
+    trans="0.04 0.161 0"
+    rot="0 0 0"
+    parent="chassis"
+    mass="${wheel_mass}"/>
+
+    <xacro:wheel name="right"
+    trans="0.04 -0.161 0"
+    rot="0 0 0"
+    parent="chassis"
+    mass="${wheel_mass}"/>
+
+    <!-- <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/robotblack_drive</robotNamespace>
+        </plugin>
+    </gazebo> -->
+
+    <!--plugin_differntial_drive-->
+    <gazebo>
+        <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+            <!-- <alwaysOn>true</alwaysOn> -->
+            <updateRate>20</updateRate>
+            <leftJoint>left_joint_wheel</leftJoint>
+            <rightJoint>right_joint_wheel</rightJoint>
+            <wheelSeparation>0.322</wheelSeparation>
+            <wheelDiameter>0.2</wheelDiameter>
+            <torque>0.1</torque>
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+        </plugin>
+    </gazebo>
+
+    
+</robot>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="Teleop_Rb" pkg="robotblack_gazebo" type="teleop_keyboard_with_Rb.py"
+		respawn="false">
+    </node>
+
+</launch>
