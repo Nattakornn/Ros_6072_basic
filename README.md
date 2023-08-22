@@ -26,3 +26,5 @@ Navigation robot
 ```sh
 roslaunch robotblack_navigation robotblack_navigation.launch
 ```
+[![Example project ros]
+(https://www.youtube.com/watch?v=p-w7WgIr49I)
